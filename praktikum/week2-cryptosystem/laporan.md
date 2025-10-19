@@ -15,7 +15,7 @@ Kelas: 5IKRB
 ---
 
 ## 2. Dasar Teori
-Cryptosystem atau sistem kriptografi adalah seperangkat metode atau algoritma yang digunakan untuk mengamankan data melalui proses enkripsi dan dekripsi. Tujuan utama dari sistem ini adalah untuk menjaga kerahasiaan informasi (confidentiality), memastikan integritas data, serta memberikan otentikasi dan non-repudiation. Komponen utama dalam sebuah kriptosistem meliputi plaintext (teks asli), ciphertext (teks yang telah dienkripsi), algoritma enkripsi dan dekripsi, serta kunci (key) yang digunakan dalam proses enkripsi dan dekripsi tersebut.
+**Cryptosystem atau sistem kriptografi adalah seperangkat metode atau algoritma yang digunakan untuk mengamankan data melalui proses enkripsi dan dekripsi. Tujuan utama dari sistem ini adalah untuk menjaga kerahasiaan informasi (confidentiality), memastikan integritas data, serta memberikan otentikasi dan non-repudiation. Komponen utama dalam sebuah kriptosistem meliputi plaintext (teks asli), ciphertext (teks yang telah dienkripsi), algoritma enkripsi dan dekripsi, serta kunci (key) yang digunakan dalam proses enkripsi dan dekripsi tersebut.
 Enkripsi merupakan proses mengubah data asli (plaintext) menjadi bentuk yang tidak dapat dibaca (ciphertext) tanpa kunci tertentu, sedangkan dekripsi adalah proses mengembalikan ciphertext menjadi bentuk aslinya. Keamanan sistem ini bergantung pada algoritma yang digunakan dan seberapa baik kunci rahasia dijaga. Dalam implementasinya, kriptosistem dibagi menjadi dua jenis utama: kriptografi simetris dan asimetris.
 Kriptografi simetris menggunakan satu kunci yang sama untuk proses enkripsi dan dekripsi. Sistem ini lebih cepat dan efisien, sehingga sering digunakan untuk mengamankan data dalam jumlah besar. Namun, kelemahannya terletak pada distribusi kunci — jika kunci jatuh ke tangan yang salah, seluruh sistem bisa terancam. Sebaliknya, kriptografi asimetris menggunakan dua kunci berbeda: kunci publik untuk enkripsi dan kunci privat untuk dekripsi. Sistem ini lebih aman dalam hal distribusi kunci, namun memerlukan lebih banyak sumber daya dan waktu karena prosesnya lebih kompleks.
 Dalam praktiknya, kedua jenis sistem ini sering dikombinasikan untuk memanfaatkan kelebihan masing-masing. Sistem asimetris biasanya digunakan untuk pertukaran kunci secara aman, sementara sistem simetris digunakan untuk mengenkripsi isi data secara efisien. Pendekatan hibrida ini umum digunakan dalam berbagai protokol keamanan seperti SSL/TLS pada komunikasi internet.
@@ -73,6 +73,10 @@ Dalam praktiknya, kedua jenis sistem ini sering dikombinasikan untuk memanfaatka
 ## 6. Hasil dan Pembahasan
 Kriptosistem merupakan fondasi penting dalam menjaga keamanan komunikasi dengan menggunakan proses enkripsi dan dekripsi yang melibatkan plaintext, ciphertext, algoritma, dan kunci. Sistem kriptografi simetris menawarkan kecepatan dan efisiensi, tetapi menghadapi tantangan besar dalam distribusi kunci yang aman. Sementara itu, kriptografi asimetris lebih aman dalam pertukaran kunci karena menggunakan pasangan kunci publik dan privat, meskipun lebih lambat dan kompleks. Oleh karena itu, kombinasi kedua metode ini sering digunakan dalam praktik untuk memanfaatkan kelebihan masing-masing, sehingga komunikasi data dapat terlindungi secara optimal.
 
+![Hasil Eksekusi](Screenshot/eksekusi.png)
+![Hasil Input](Screenshot/input.png)
+![Hasil Output](Screenshot/output.png)
+
 ---
 
 ## 7. Jawaban Pertanyaan
@@ -90,4 +94,5 @@ Kriptosistem merupakan fondasi penting dalam menjaga keamanan komunikasi dengan 
 ## 9. Daftar Pustaka
 
 ---
+
 
