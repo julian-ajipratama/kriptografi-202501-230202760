@@ -29,6 +29,7 @@ Visual Studio Code / editor lain Git dan akun GitHub )
 
 ## 5. Source Code
 
+```def mod_add(a, b, n): return (a + b) % n
 def mod_sub(a, b, n): return (a - b) % n
 def mod_mul(a, b, n): return (a * b) % n
 def mod_exp(base, exp, n): return pow(base, exp, n)  # eksponensiasi modular
@@ -67,15 +68,11 @@ def discrete_log(a, b, n):
 print("3^x ≡ 4 (mod 7), x =", discrete_log(3, 4, 7))  # hasil: 4
 ```
 
+
 ---
 
 ## 6. Hasil dan Pembahasan
-(- Lampirkan screenshot hasil eksekusi program (taruh di folder `screenshots/`).  
-- Berikan tabel atau ringkasan hasil uji jika diperlukan.  
-- Jelaskan apakah hasil sesuai ekspektasi.  
-- Bahas error (jika ada) dan solusinya. 
 
-Hasil eksekusi program Caesar Cipher:
 
 ![Hasil Eksekusi](screenshot/output.png)
 ![Hasil Input](screenshot/input.png)
@@ -111,3 +108,4 @@ Date:   2025-09-21
 
     week2-cryptosystem: implementasi Caesar Cipher dan laporan 
 ```
+
