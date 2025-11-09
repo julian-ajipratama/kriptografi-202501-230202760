@@ -110,12 +110,10 @@ Berdasarkan hasil percobaan, dapat disimpulkan bahwa entropi berperan penting da
 ---
 
 ## 10. Commit Log
-(Tuliskan bukti commit Git yang relevan.  
-Contoh:
 ```
-commit abc12345
-Author: Nama Mahasiswa <email>
-Date:   2025-09-20
+commit 65f2c8c2366bb30572c435421f381b08684d6a95 (HEAD -> main, origin/main, origin/HEAD)
+Author: julian-ajipratama <julianap28072005@gmail.com>
+Date:   Sun Nov 9 12:38:11 2025 +0700
 
-    week2-cryptosystem: implementasi Caesar Cipher dan laporan )
+    week4-entropy-unicity
 ```
