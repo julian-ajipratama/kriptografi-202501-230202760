@@ -102,9 +102,9 @@ Kriptosistem merupakan fondasi penting dalam menjaga keamanan komunikasi dengan 
 
 ## 10. Commit Log
 ```
-commit abc12345
-Author: julian aji pratama <julianap28072005@gmail.com>
-Date:   2025-09-21
+commit 1d6fdbb39102f23e07a1131517bc885fb983e4bd (HEAD -> main, origin/main, origin/HEAD)
+Author: julian-ajipratama <julianap28072005@gmail.com>
+Date:   Sun Nov 9 11:45:29 2025 +0700
 
-    week2-cryptosystem: implementasi Caesar Cipher dan laporan 
+    week2-cryptosystem
 ```
