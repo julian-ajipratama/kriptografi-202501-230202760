@@ -103,11 +103,10 @@ Contoh:
 ---
 
 ## 10. Commit Log
-week3-modular_math: implementasi Aritmetika Modular, GCD, Bilangan Prima, Logaritma Diskri
 ```
-commit abc12345
-Author: julian aji pratama <julianap28072005@gmail.com>
-Date:   2025-09-21
+commit 770be782f1245c5a67429c96f047ce4e7a2b1c3d (HEAD -> main, origin/main, origin/HEAD)
+Author: julian-ajipratama <julianap28072005@gmail.com>
+Date:   Sun Nov 9 11:53:33 2025 +0700
 
-    week2-cryptosystem: implementasi Caesar Cipher dan laporan 
+    week3-modmath-gcd
 ```
