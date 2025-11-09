@@ -73,6 +73,15 @@ Praktikum minggu pertama berhasil diselesaikan dengan penyiapan repositori GitHu
 ---
 
 ## 9. Daftar Pustaka
+-
 
 ---
 
+## 10. Commit Log
+```
+commit abc12345
+Author: julian aji pratama <julianap28072005@gmail.com>
+Date:   2025-09-21
+
+    week2-cryptosystem: implementasi Caesar Cipher dan laporan 
+```
