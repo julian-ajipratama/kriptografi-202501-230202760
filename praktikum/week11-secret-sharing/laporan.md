@@ -1,37 +1,40 @@
 # Laporan Praktikum Kriptografi
-Minggu ke-: X  
-Topik: [judul praktikum]  
-Nama: [Nama Mahasiswa]  
-NIM: [NIM Mahasiswa]  
-Kelas: [Kelas]  
+Minggu ke-: 11  
+Topik: Secret Sharing (Shamir’s Secret Sharing)  
+Nama: Julian Aji Pratama  
+NIM: 230202760  
+Kelas: 5IKRB  
 
 ---
 
 ## 1. Tujuan
-(Tuliskan tujuan pembelajaran praktikum sesuai modul.)
+1. Menjelaskan konsep **Shamir Secret Sharing** (SSS).  
+2. Melakukan simulasi pembagian rahasia ke beberapa pihak menggunakan skema SSS.  
+3. Menganalisis keamanan skema distribusi rahasia.  
 
 ---
 
 ## 2. Dasar Teori
-(Ringkas teori relevan (cukup 2–3 paragraf).  
-Contoh: definisi cipher klasik, konsep modular aritmetika, dll.  )
+Shamir’s Secret Sharing adalah skema kriptografi yang digunakan untuk membagi sebuah rahasia menjadi beberapa bagian (shares) sehingga rahasia tersebut hanya dapat direkonstruksi jika jumlah share yang dikumpulkan mencapai nilai ambang tertentu (threshold k). Skema ini diperkenalkan oleh Adi Shamir pada tahun 1979.
+
+SSS didasarkan pada konsep polinomial matematika dan interpolasi Lagrange. Rahasia disimpan sebagai konstanta polinomial, sedangkan setiap share merupakan titik pada polinomial tersebut. Keamanan SSS terjamin karena dengan kurang dari k share, tidak ada informasi berarti yang dapat digunakan untuk menebak rahasia.
 
 ---
 
 ## 3. Alat dan Bahan
-(- Python 3.x  
+- Python 3.12.10  
 - Visual Studio Code / editor lain  
 - Git dan akun GitHub  
-- Library tambahan (misalnya pycryptodome, jika diperlukan)  )
+- Library tambahan (secretsharing)
 
 ---
 
 ## 4. Langkah Percobaan
 (Tuliskan langkah yang dilakukan sesuai instruksi.  
 Contoh format:
-1. Membuat file `caesar_cipher.py` di folder `praktikum/week2-cryptosystem/src/`.
+1. Membuat file `secret_sharing.py` di folder `praktikum/week11-secret-sharing/src/`.
 2. Menyalin kode program dari panduan praktikum.
-3. Menjalankan program dengan perintah `python caesar_cipher.py`.)
+3. Menjalankan program dengan perintah `python secret_sharing.py`.)
 
 ---
 
@@ -40,9 +43,56 @@ Contoh format:
 Gunakan blok kode:
 
 ```python
-# contoh potongan kode
-def encrypt(text, key):
-    return ...
+import random
+
+# Bilangan prima besar (harus > secret)
+P = 208351617316091241234326746312124448251235562226470491514186331217050270460481
+
+def generate_shares(secret, k, n):
+    """
+    Membagi secret menjadi n shares dengan threshold k
+    """
+    # Koefisien polinomial acak (a0 = secret)
+    coeffs = [secret] + [random.randrange(1, P) for _ in range(k - 1)]
+
+    shares = []
+    for x in range(1, n + 1):
+        y = 0
+        for i in range(len(coeffs)):
+            y += coeffs[i] * (x ** i)
+        y %= P
+        shares.append((x, y))
+    return shares
+
+def reconstruct_secret(shares):
+    """
+    Rekonstruksi secret menggunakan Lagrange Interpolation
+    """
+    secret = 0
+    for j, (xj, yj) in enumerate(shares):
+        lj = 1
+        for m, (xm, _) in enumerate(shares):
+            if m != j:
+                lj *= xm * pow(xm - xj, -1, P)
+                lj %= P
+        secret += yj * lj
+        secret %= P
+    return secret
+
+# ===== MAIN PROGRAM =====
+secret = 123456  # rahasia (integer)
+k = 3
+n = 5
+
+shares = generate_shares(secret, k, n)
+
+print("Shares yang dihasilkan:")
+for s in shares:
+    print(s)
+
+# Rekonstruksi dengan k shares
+recovered = reconstruct_secret(shares[:k])
+print("\nRecovered secret:", recovered)
 ```
 )
 
@@ -56,22 +106,23 @@ def encrypt(text, key):
 
 Hasil eksekusi program Caesar Cipher:
 
-![Hasil Eksekusi](screenshots/output.png)
-![Hasil Input](screenshots/input.png)
-![Hasil Output](screenshots/output.png)
+![Hasil Eksekusi](screenshots/hasil.png)
 )
 
 ---
 
 ## 7. Jawaban Pertanyaan
-(Jawab pertanyaan diskusi yang diberikan pada modul.  
-- Pertanyaan 1: …  
-- Pertanyaan 2: …  
-)
+- Pertanyaan 1: Apa keuntungan utama Shamir Secret Sharing dibanding membagikan salinan kunci secara langsung?  
+  SSS meningkatkan keamanan karena tidak ada satu pihak pun yang memegang rahasia utuh, sehingga risiko kebocoran kunci dapat diminimalkan.
+- Pertanyaan 2: Apa peran **threshold (k)** dalam keamanan secret sharing?  
+  Threshold menentukan jumlah minimal share yang diperlukan untuk merekonstruksi rahasia. Nilai k memastikan bahwa rahasia tetap aman meskipun sebagian share bocor.
+- Pertanyaan 3: Berikan satu contoh skenario nyata di mana SSS sangat bermanfaat.  
+  SSS digunakan dalam manajemen kunci cryptocurrency, di mana kunci privat dibagi ke beberapa pihak agar tidak ada satu pihak yang memiliki kendali penuh.
+
 ---
 
 ## 8. Kesimpulan
-(Tuliskan kesimpulan singkat (2–3 kalimat) berdasarkan percobaan.  )
+Shamir’s Secret Sharing memungkinkan pembagian rahasia secara aman ke beberapa pihak. Rahasia hanya dapat direkonstruksi jika jumlah share memenuhi threshold yang ditentukan. Skema ini sangat berguna dalam sistem keamanan yang membutuhkan distribusi kepercayaan.
 
 ---
 
