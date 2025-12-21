@@ -1,25 +1,28 @@
 # Laporan Praktikum Kriptografi
-Minggu ke-: X  
-Topik: [judul praktikum]  
-Nama: [Nama Mahasiswa]  
-NIM: [NIM Mahasiswa]  
-Kelas: [Kelas]  
+Minggu ke-: 7  
+Topik: Diffie-Hellman Key Exchange  
+Nama: Julian Aji Pratama  
+NIM: 230202760  
+Kelas: 5IKRB  
 
 ---
 
 ## 1. Tujuan
-(Tuliskan tujuan pembelajaran praktikum sesuai modul.)
+1. Melakukan simulasi protokol **Diffie-Hellman** untuk pertukaran kunci publik.  
+2. Menjelaskan mekanisme pertukaran kunci rahasia menggunakan bilangan prima dan logaritma diskrit.  
+3. Menganalisis potensi serangan pada protokol Diffie-Hellman (termasuk serangan **Man-in-the-Middle / MITM**).  
 
 ---
 
 ## 2. Dasar Teori
-(Ringkas teori relevan (cukup 2–3 paragraf).  
-Contoh: definisi cipher klasik, konsep modular aritmetika, dll.  )
+Diffie-Hellman Key Exchange merupakan protokol kriptografi yang memungkinkan dua pihak untuk membangun kunci rahasia bersama melalui saluran komunikasi yang tidak aman. Protokol ini diperkenalkan oleh Whitfield Diffie dan Martin Hellman pada tahun 1976 dan menjadi dasar bagi banyak sistem keamanan modern.
+
+Prinsip kerja Diffie-Hellman bergantung pada kesulitan logaritma diskrit dalam aritmetika modular. Meskipun nilai bilangan prima (p), generator (g), dan kunci publik diketahui oleh pihak lain, kunci privat tetap sulit dihitung secara komputasional. Namun, Diffie-Hellman murni tidak menyediakan mekanisme autentikasi sehingga rentan terhadap serangan MITM.
 
 ---
 
 ## 3. Alat dan Bahan
-(- Python 3.x  
+(- Python 3.12.10  
 - Visual Studio Code / editor lain  
 - Git dan akun GitHub  
 - Library tambahan (misalnya pycryptodome, jika diperlukan)  )
@@ -29,9 +32,9 @@ Contoh: definisi cipher klasik, konsep modular aritmetika, dll.  )
 ## 4. Langkah Percobaan
 (Tuliskan langkah yang dilakukan sesuai instruksi.  
 Contoh format:
-1. Membuat file `caesar_cipher.py` di folder `praktikum/week2-cryptosystem/src/`.
+1. Membuat file `diffie_hellman.py` di folder `praktikum/week7-diffie-hellman/src/`.
 2. Menyalin kode program dari panduan praktikum.
-3. Menjalankan program dengan perintah `python caesar_cipher.py`.)
+3. Menjalankan program dengan perintah `python diffie_hellman.py`.)
 
 ---
 
@@ -40,9 +43,26 @@ Contoh format:
 Gunakan blok kode:
 
 ```python
-# contoh potongan kode
-def encrypt(text, key):
-    return ...
+import random
+
+# parameter umum (disepakati publik)
+p = 23  # bilangan prima
+g = 5   # generator
+
+# private key masing-masing pihak
+a = random.randint(1, p-1)  # secret Alice
+b = random.randint(1, p-1)  # secret Bob
+
+# public key
+A = pow(g, a, p)
+B = pow(g, b, p)
+
+# exchange public key
+shared_secret_A = pow(B, a, p)
+shared_secret_B = pow(A, b, p)
+
+print("Kunci bersama Alice :", shared_secret_A)
+print("Kunci bersama Bob   :", shared_secret_B)
 ```
 )
 
@@ -56,22 +76,23 @@ def encrypt(text, key):
 
 Hasil eksekusi program Caesar Cipher:
 
-![Hasil Eksekusi](screenshots/output.png)
-![Hasil Input](screenshots/input.png)
-![Hasil Output](screenshots/output.png)
+![Hasil Eksekusi](screenshots/hasil.png)
 )
 
 ---
 
-## 7. Jawaban Pertanyaan
-(Jawab pertanyaan diskusi yang diberikan pada modul.  
-- Pertanyaan 1: …  
-- Pertanyaan 2: …  
-)
+## 7. Jawaban Pertanyaan  
+- Pertanyaan 1: Mengapa Diffie-Hellman memungkinkan pertukaran kunci di saluran publik?  
+  Karena keamanan Diffie-Hellman bergantung pada kesulitan perhitungan logaritma diskrit, sehingga kunci privat tidak dapat dihitung meskipun parameter publik diketahui.
+- Pertanyaan 2: Apa kelemahan utama protokol Diffie-Hellman murni?  
+  Kelemahan utamanya adalah tidak adanya mekanisme autentikasi, sehingga rentan terhadap serangan Man-in-the-Middle.
+- Pertanyaan 3: Bagaimana cara mencegah serangan MITM pada protokol ini?  
+  Dengan menambahkan autentikasi, seperti sertifikat digital, tanda tangan digital, atau menggunakan protokol turunan seperti Authenticated Diffie-Hellman atau TLS.
+  
 ---
 
 ## 8. Kesimpulan
-(Tuliskan kesimpulan singkat (2–3 kalimat) berdasarkan percobaan.  )
+Praktikum ini menunjukkan bahwa Diffie-Hellman efektif untuk pertukaran kunci rahasia melalui saluran publik. Namun, tanpa mekanisme autentikasi, protokol ini rentan terhadap serangan MITM. Oleh karena itu, penerapan Diffie-Hellman harus dikombinasikan dengan metode autentikasi yang aman.
 
 ---
 
@@ -84,12 +105,10 @@ Contoh:
 ---
 
 ## 10. Commit Log
-(Tuliskan bukti commit Git yang relevan.  
-Contoh:
 ```
 commit abc12345
 Author: Nama Mahasiswa <email>
 Date:   2025-09-20
 
-    week2-cryptosystem: implementasi Caesar Cipher dan laporan )
+    week2-cryptosystem: implementasi Caesar Cipher dan laporan 
 ```
