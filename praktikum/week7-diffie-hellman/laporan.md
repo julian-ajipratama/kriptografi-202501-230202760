@@ -106,9 +106,9 @@ Contoh:
 
 ## 10. Commit Log
 ```
-commit abc12345
-Author: Nama Mahasiswa <email>
-Date:   2025-09-20
+commit 02cab9e482b8ece11434fd83c9e260a6fd0d2a3a (HEAD -> main, origin/main, origin/HEAD)
+Author: julian-ajipratama <julianap28072005@gmail.com>
+Date:   Sun Dec 21 09:43:16 2025 +0700
 
-    week2-cryptosystem: implementasi Caesar Cipher dan laporan 
+    week7-diffie-hellman
 ```
