@@ -103,12 +103,10 @@ MD5 tidak lagi aman untuk penyimpanan password karena rentan terhadap brute forc
 ---
 
 ## 10. Commit Log
-(Tuliskan bukti commit Git yang relevan.  
-Contoh:
 ```
-commit abc12345
-Author: Nama Mahasiswa <email>
-Date:   2025-09-20
+commit e58cc87ff4e900f3ecd5862a4c876d8697916881 (HEAD -> main, origin/main, origin/HEAD)
+Author: julian-ajipratama <julianap28072005@gmail.com>
+Date:   Thu Feb 5 14:36:40 2026 +0700
 
-    week2-cryptosystem: implementasi Caesar Cipher dan laporan )
+    week14-analisis-serangan
 ```
